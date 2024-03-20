@@ -1,0 +1,26 @@
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>>
+>>> # Parameters
+>>> time_steps = 100  # Number of time steps
+>>> alpha_synuclein_levels = np.linspace(0, 1, time_steps)  # Simulate increase in alpha-synuclein levels
+>>> dopamine_baseline = 100  # Baseline dopamine level
+>>> dopamine_fluctuation_range = 20  # Maximum fluctuation range of dopamine
+>>> dopamine_fluctuation_rate = 0.1  # Rate of dopamine decrease per unit increase in alpha-synuclein
+>>>
+>>> # Simulate dopamine levels
+>>> dopamine_levels = np.zeros_like(alpha_synuclein_levels)
+>>> for i, alpha_level in enumerate(alpha_synuclein_levels):
+...     dopamine_levels[i] = dopamine_baseline - (alpha_level * dopamine_fluctuation_range * dopamine_fluctuation_rate)
+...
+>>> # Plotting
+>>> plt.plot(alpha_synuclein_levels, dopamine_levels)
+[<matplotlib.lines.Line2D object at 0x00000170E3BECB60>]
+>>> plt.xlabel('Alpha-Synuclein Aggregation Level')
+Text(0.5, 0, 'Alpha-Synuclein Aggregation Level')
+>>> plt.ylabel('Dopamine Level')
+Text(0, 0.5, 'Dopamine Level')
+>>> plt.title('Effect of Alpha-Synuclein Aggregation on Dopamine Levels')
+Text(0.5, 1.0, 'Effect of Alpha-Synuclein Aggregation on Dopamine Levels')
+>>> plt.grid(True)
+>>> plt.show()
